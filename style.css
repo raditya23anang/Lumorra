@@ -1,0 +1,723 @@
+/* ... SEMUA KODE CSS LAMA (BAGIAN 1-8) ADA DI SINI ... */
+/* ... SAYA TAMBAHKAN KODE BARU DI BAGIAN 9 & 10 ... */
+
+/* ==========================================================================
+   1. VARIABLES & SETUP
+   ========================================================================== */
+
+:root {
+  /* Colors */
+  --color-primary: #8a4b66;
+  --color-primary-dark: #6d3a51;
+  --color-text: #333333;
+  --color-text-light: #666666;
+  --color-background: #ffffff;
+  --color-background-alt: #f9f6f7;
+  --color-border: #eeeeee;
+  --color-white: #ffffff;
+
+  /* Fonts */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+
+  /* Sizing & Spacing */
+  --header-height: 70px;
+  --border-radius: 8px;
+  --transition-speed: 300ms;
+}
+
+/* Basic Reset & Box Sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ==========================================================================
+   2. REUSABLE COMPONENTS (Container, Buttons, Grids)
+   ========================================================================== */
+
+.container {
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.section--bg-alt {
+  background-color: var(--color-background-alt);
+}
+
+.section__header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section__header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.section__header p {
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 50px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  text-align: center;
+}
+
+.btn--primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-link {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-primary);
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.grid-container--2-cols {
+  display: grid;
+  gap: 40px;
+}
+
+.grid-container--3-cols {
+  display: grid;
+  gap: 30px;
+}
+
+/* ==========================================================================
+   3. HEADER & NAVIGATION
+   ========================================================================== */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 1000;
+  transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.header--scrolled { /* Class to be added with JS */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.header__logo {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.header__nav {
+  display: none; /* Hidden on mobile */
+}
+
+.header__nav a {
+  margin-left: 2rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-text);
+  position: relative;
+  padding: 5px 0;
+}
+
+/* Penanda halaman aktif di navigasi */
+.header__nav a.active-link {
+    color: var(--color-primary);
+}
+.header__nav a.active-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary);
+}
+
+
+.header__menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text);
+}
+
+/* ==========================================================================
+   4. SIDEBAR & OVERLAY
+   ========================================================================== */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100%;
+  background-color: var(--color-background);
+  z-index: 2000;
+  transform: translateX(100%);
+  transition: transform var(--transition-speed) ease-in-out;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar--open { /* Class to be added with JS */
+  transform: translateX(0);
+  box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+}
+
+.sidebar__header {
+  text-align: right;
+  margin-bottom: 2rem;
+}
+
+.sidebar__close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--color-text);
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebar__nav a {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Penanda halaman aktif di sidebar */
+.sidebar__nav a.active-link {
+    color: var(--color-primary);
+}
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-speed) ease, visibility var(--transition-speed) ease;
+}
+
+.overlay--active { /* Class to be added with JS */
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* ==========================================================================
+   5. HERO SECTION
+   ========================================================================== */
+
+.hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-white);
+  background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.hero__scroll-down {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-white);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translate(-50%, 0);
+  }
+  40% {
+    transform: translate(-50%, -10px);
+  }
+  60% {
+    transform: translate(-50%, -5px);
+  }
+}
+
+/* ==========================================================================
+   6. PAGE SECTIONS (Features, Products, About, etc.)
+   ========================================================================== */
+/* Features */
+.feature-item {
+  text-align: center;
+}
+.feature-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.feature-item p {
+  color: var(--color-text-light);
+}
+
+/* Testimonials */
+.testimonial-card {
+  background-color: #fff;
+  border-left: 4px solid var(--color-primary);
+  padding: 30px;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+}
+
+.testimonial-card p {
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.testimonial-card footer {
+  font-weight: 600;
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+}
+
+
+/* ==========================================================================
+   7. FOOTER
+   ========================================================================== */
+
+.footer {
+  background-color: #1a1a1a;
+  color: #a0a0a0;
+  padding: 60px 0;
+  font-size: 0.9rem;
+}
+
+.footer__content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.footer__about h3 {
+  color: var(--color-white);
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.footer__socials {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer__socials a {
+  color: var(--color-white);
+  transition: color var(--transition-speed) ease;
+}
+
+.footer__socials a:hover {
+  color: var(--color-primary);
+}
+
+.footer__copyright {
+  text-align: center;
+  border-top: 1px solid #333;
+  padding-top: 30px;
+}
+
+
+/* ==========================================================================
+   8. ANIMATIONS & RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* Animation Class (to be toggled with JS) */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Tablet devices (768px and up) */
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 4rem;
+  }
+  
+  .grid-container--3-cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer__content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+}
+
+/* Desktop devices (1024px and up) */
+@media (min-width: 1024px) {
+  .header__menu-toggle {
+    display: none;
+  }
+
+  .header__nav {
+    display: flex;
+  }
+
+  .grid-container--2-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* ==========================================================================
+   9. ABOUT US SLIDER STYLES
+   ========================================================================== */
+
+.about__slider-container {
+  overflow: hidden; /* Ini kunci utama: menyembunyikan slide lain */
+  position: relative;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.about__slider-wrapper {
+  display: flex;
+  width: 200%; 
+  transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.about__slide {
+  width: 50%; 
+  display: grid;
+  gap: 40px;
+  align-items: center;
+  background-color: var(--color-white);
+  padding: 40px;
+}
+
+.about__image-container img {
+  border-radius: var(--border-radius);
+}
+
+.about__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about__content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.about__content p {
+  margin-bottom: 20px;
+}
+
+
+/* Penyesuaian layout slide untuk desktop */
+@media (min-width: 1024px) {
+  .about__slide {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Navigasi Titik (Dots) */
+.slider-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.slider-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.slider-dot.active,
+.slider-dot:hover {
+  background-color: var(--color-primary);
+}
+
+
+/* ==========================================================================
+   10. STYLES UNTUK HALAMAN BARU (MULTI-PAGE) -- KODE BARU
+   ========================================================================== */
+
+/* Preview layanan di halaman utama */
+.service-preview-card {
+    background-color: var(--color-white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+}
+
+/* Header untuk setiap halaman (non-hero) */
+.page-header {
+    padding: 120px 0 60px 0;
+    background-color: var(--color-background-alt);
+    text-align: center;
+}
+.page-header h1 {
+    font-size: 3rem;
+}
+.page-header p {
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    max-width: 600px;
+    margin: 10px auto 0 auto;
+}
+
+/* Kartu Layanan di Halaman Services */
+.service-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.service-card__image-container img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+.service-card__content {
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.service-card__content h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+.service-card__content p {
+    color: var(--color-text-light);
+    margin-bottom: 20px;
+}
+.service-card__content ul {
+    list-style-position: inside;
+    margin-bottom: 30px;
+    color: var(--color-text-light);
+}
+.service-card__content .btn {
+    margin-top: auto; /* Mendorong tombol ke bawah */
+}
+
+/* Kartu Tim di Halaman About */
+.team-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    text-align: center;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+}
+.team-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px auto;
+    border: 4px solid var(--color-background-alt);
+}
+.team-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+.team-card p {
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+/* Form Kontak & Info di Halaman Contact */
+.contact-form-container, .contact-info-container {
+    background-color: var(--color-white);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+}
+.contact-form-container h2, .contact-info-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-family: var(--font-body);
+}
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+.contact-details {
+    list-style: none;
+    margin-bottom: 30px;
+}
+.contact-details li {
+    margin-bottom: 10px;
+}
+.map-container {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    height: 300px;
+}
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}

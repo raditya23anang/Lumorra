@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Lumora Aesthetics</title>
+    <meta name="description" content="Hubungi kami untuk jadwal konsultasi atau informasi lebih lanjut. Temukan lokasi klinik kami di sini.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header id="main-header" class="header">
+        <div class="container header__container">
+            <a href="index.html" class="header__logo">LUMORA</a>
+            <nav class="header__nav">
+                <a href="index.html">Beranda</a>
+                <a href="services.html">Layanan</a>
+                <a href="about.html">Tentang Kami</a>
+                <a href="contact.html">Kontak</a>
+            </nav>
+            <button id="menu-btn" class="header__menu-toggle" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="sidebar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+        </div>
+    </header>
+
+    <aside id="sidebar" class="sidebar" aria-hidden="true">
+        <div class="sidebar__header">
+            <button id="close-btn" class="sidebar__close-btn" aria-label="Tutup menu navigasi">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+        <nav class="sidebar__nav">
+            <a href="index.html">Beranda</a>
+            <a href="services.html">Layanan</a>
+            <a href="about.html">Tentang Kami</a>
+            <a href="contact.html">Kontak</a>
+        </nav>
+    </aside>
+    <div id="overlay" class="overlay"></div>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Hubungi Kami</h1>
+                <p>Kami siap membantu Anda dalam perjalanan estetika Anda. Jadwalkan konsultasi Anda hari ini.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container grid-container--2-cols">
+                <div class="contact-form-container animate-on-scroll">
+                    <h2>Kirim Pesan</h2>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                         <div class="form-group">
+                            <label for="email">Alamat Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                         <div class="form-group">
+                            <label for="subject">Subjek</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                         <div class="form-group">
+                            <label for="message">Pesan Anda</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary">Kirim Pesan</button>
+                    </form>
+                </div>
+
+                <div class="contact-info-container animate-on-scroll">
+                    <h2>Informasi Kontak</h2>
+                    <p>Kunjungi klinik kami atau hubungi kami melalui telepon atau email.</p>
+                    <ul class="contact-details">
+                        <li><strong>Alamat:</strong> Jl. Jend. Sudirman No. 123, Jakarta Selatan</li>
+                        <li><strong>Telepon:</strong> (021) 1234 5678</li>
+                        <li><strong>Email:</strong> info@lumora.com</li>
+                    </ul>
+                    
+                    <h3>Peta Lokasi</h3>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322333!2d106.8195863153542!3d-6.194741395514691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f428a2a5c917%3A0x89f41151d952671!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1669888888888!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__about">
+                    <h3>LUMORA</h3>
+                    <p>Sains dan seni untuk estetika Anda.</p>
+                </div>
+                <div class="footer__socials">
+                     <a href="#" aria-label="Instagram Lumora"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                    <a href="#" aria-label="Facebook Lumora"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                <p>&copy; 2025 Lumora Aesthetics. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumora Aesthetics - Beranda</title>
+    <meta name="description" content="Selamat datang di Lumora, tempat di mana sains dan kecantikan bertemu untuk memberikan Anda hasil terbaik.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header id="main-header" class="header">
+        <div class="container header__container">
+            <a href="index.html" class="header__logo">LUMORA</a>
+            <nav class="header__nav">
+                <a href="index.html">Beranda</a>
+                <a href="services.html">Layanan</a>
+                <a href="about.html">Tentang Kami</a>
+                <a href="contact.html">Kontak</a>
+            </nav>
+            <button id="menu-btn" class="header__menu-toggle" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="sidebar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+        </div>
+    </header>
+
+    <aside id="sidebar" class="sidebar" aria-hidden="true">
+        <div class="sidebar__header">
+            <button id="close-btn" class="sidebar__close-btn" aria-label="Tutup menu navigasi">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+        <nav class="sidebar__nav">
+            <a href="index.html">Beranda</a>
+            <a href="services.html">Layanan</a>
+            <a href="about.html">Tentang Kami</a>
+            <a href="contact.html">Kontak</a>
+        </nav>
+    </aside>
+    <div id="overlay" class="overlay"></div>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero__overlay"></div>
+            <div class="container hero__content">
+                <h1 class="animate-on-scroll">Sains Bertemu Kecantikan</h1>
+                <p class="animate-on-scroll"> Solusi estetika terdepan untuk versi terbaik dari diri Anda.</p>
+                <a href="services.html" class="btn btn--primary animate-on-scroll">Jelajahi Layanan Kami</a>
+            </div>
+        </section>
+
+        <section id="features" class="section features">
+             <div class="container grid-container--3-cols">
+                <div class="feature-item animate-on-scroll">
+                    <h3> Tenaga Ahli</h3>
+                    <p>D tangani oleh tim dokter dan ahli estetika bersertifikasi internasional.</p>
+                </div>
+                <div class="feature-item animate-on-scroll">
+                    <h3> Teknologi Terdepan</h3>
+                    <p>Menggunakan peralatan paling modern untuk hasil yang presisi dan aman.</p>
+                </div>
+                <div class="feature-item animate-on-scroll">
+                    <h3> Hasil Nyata</h3>
+                    <p>Berkomitmen untuk memberikan hasil yang memuaskan dan terlihat alami.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--bg-alt">
+            <div class="container">
+                <div class="section__header animate-on-scroll">
+                    <h2>Layanan Unggulan Kami</h2>
+                    <p>Kami menyediakan solusi bedah dan non-bedah untuk memenuhi setiap kebutuhan estetika Anda.</p>
+                </div>
+                <div class="grid-container--2-cols">
+                    <div class="service-preview-card animate-on-scroll">
+                        <h3>Surgery</h3>
+                        <p>Prosedur bedah plastik untuk perubahan signifikan dan permanen oleh ahli bedah terbaik kami.</p>
+                        <a href="services.html" class="btn-link">Lihat Selengkapnya &rarr;</a>
+                    </div>
+                    <div class="service-preview-card animate-on-scroll">
+                        <h3>Non-Surgery</h3>
+                        <p>Perawatan minimal invasif seperti Botox, Filler, dan Laser untuk peremajaan kulit tanpa downtime.</p>
+                        <a href="services.html" class="btn-link">Lihat Selengkapnya &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="section">
+            <div class="container">
+                <div class="section__header animate-on-scroll">
+                    <h2>Apa Kata Mereka</h2>
+                </div>
+                <div class="grid-container--2-cols">
+                    <blockquote class="testimonial-card animate-on-scroll">
+                        <p>"Hasil Rhinoplasty di Lumora sangat alami. Tim dokter sangat profesional dan informatif. Sangat merekomendasikan!"</p>
+                        <footer>— Jessica L.</footer>
+                    </blockquote>
+                    <blockquote class="testimonial-card animate-on-scroll">
+                        <p>"Perawatan laser untuk bekas jerawat benar-benar mengubah kulitku. Terima kasih Lumora!"</p>
+                        <footer>— David P.</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__about">
+                    <h3>LUMORA</h3>
+                    <p>Sains dan seni untuk estetika Anda.</p>
+                </div>
+                <div class="footer__socials">
+                     <a href="#" aria-label="Instagram Lumora"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                    <a href="#" aria-label="Facebook Lumora"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                <p>&copy; 2025 Lumora Aesthetics. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
