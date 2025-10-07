@@ -1,5 +1,33 @@
 /* ... SEMUA KODE CSS LAMA (BAGIAN 1-8) ADA DI SINI ... */
-/* ... SAYA TAMBAHKAN KODE BARU DI BAGIAN 9 & 10 ... */
+
+/* ==========================================================================
+   9. ABOUT US SLIDER STYLES -- DIPERBARUI
+   ========================================================================== */
+
+.about__slider-container {
+  overflow: hidden; 
+  position: relative;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.about__slider-wrapper {
+  display: flex;
+  width: 300%; /* DIPERBARUI: Lebar untuk 3 slide */
+  transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.about__slide {
+  width: 33.3333%; /* DIPERBARUI: Lebar setiap slide (100% / 3) */
+  display: grid;
+  gap: 40px;
+  align-items: center;
+  background-color: var(--color-white);
+  padding: 40px;
+}
+
+/* ... SISA KODE CSS TETAP SAMA SEPERTI SEBELUMNYA ... */
+/* ... DARI BAGIAN 1-8 dan BAGIAN 10 ... */
 
 /* ==========================================================================
    1. VARIABLES & SETUP
@@ -504,11 +532,11 @@ img {
 
 
 /* ==========================================================================
-   9. ABOUT US SLIDER STYLES
+   9. ABOUT US SLIDER STYLES -- DIPERBARUI
    ========================================================================== */
 
 .about__slider-container {
-  overflow: hidden; /* Ini kunci utama: menyembunyikan slide lain */
+  overflow: hidden; 
   position: relative;
   border-radius: var(--border-radius);
   box-shadow: 0 8px 30px rgba(0,0,0,0.1);
@@ -516,12 +544,12 @@ img {
 
 .about__slider-wrapper {
   display: flex;
-  width: 200%; 
+  width: 300%; /* DIPERBARUI: Lebar untuk 3 slide */
   transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 .about__slide {
-  width: 50%; 
+  width: 33.3333%; /* DIPERBARUI: Lebar setiap slide (100% / 3) */
   display: grid;
   gap: 40px;
   align-items: center;
@@ -540,7 +568,7 @@ img {
 }
 
 .about__content h2 {
-  font-size: 2.5rem;
+  font-size: 2.2rem; /* Sedikit dikecilkan agar muat */
   margin-bottom: 20px;
 }
 
@@ -584,7 +612,7 @@ img {
 
 
 /* ==========================================================================
-   10. STYLES UNTUK HALAMAN BARU (MULTI-PAGE) -- KODE BARU
+   10. STYLES UNTUK HALAMAN BARU (MULTI-PAGE)
    ========================================================================== */
 
 /* Preview layanan di halaman utama */
@@ -594,6 +622,9 @@ img {
     border-radius: var(--border-radius);
     text-align: center;
     box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+}
+.service-preview-card h3 {
+    margin-bottom: 10px;
 }
 
 /* Header untuk setiap halaman (non-hero) */
@@ -606,10 +637,11 @@ img {
     font-size: 3rem;
 }
 .page-header p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--color-text-light);
-    max-width: 600px;
+    max-width: 800px; /* Diperlebar untuk teks about */
     margin: 10px auto 0 auto;
+    line-height: 1.8;
 }
 
 /* Kartu Layanan di Halaman Services */
@@ -649,7 +681,7 @@ img {
     margin-top: auto; /* Mendorong tombol ke bawah */
 }
 
-/* Kartu Tim di Halaman About */
+/* Kartu Tim di Halaman About (Sudah dihapus, styling ini bisa dihapus atau dibiarkan) */
 .team-card {
     background-color: var(--color-white);
     border-radius: var(--border-radius);
@@ -706,10 +738,18 @@ img {
 }
 .contact-details {
     list-style: none;
+    padding: 0;
     margin-bottom: 30px;
 }
 .contact-details li {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+}
+.contact-details li strong {
+    position: absolute;
+    left: 0;
+    font-weight: 600;
 }
 .map-container {
     border-radius: var(--border-radius);
